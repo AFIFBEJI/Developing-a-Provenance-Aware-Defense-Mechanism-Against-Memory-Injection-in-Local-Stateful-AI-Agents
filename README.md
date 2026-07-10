@@ -1,16 +1,14 @@
-# MemGuard
-
-**Developing a Provenance-Aware Defense Mechanism Against Episodic Memory Injection in Local Stateful AI Agents**
+# Memory Poisoning Robustness in Small, Locally-Deployed LLM Agents
 
 [![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-in%20development-yellow.svg)]()
-[![Ollama](https://img.shields.io/badge/runtime-Ollama-black.svg)](https://ollama.com/)
-[![SQLite](https://img.shields.io/badge/memory-SQLite%20FTS5-003B57.svg)](https://www.sqlite.org/fts5.html)
+[![Status](https://img.shields.io/badge/status-active--development-yellow.svg)]()
+[![LM Studio](https://img.shields.io/badge/runtime-LM%20Studio-black.svg)](https://lmstudio.ai/)
+[![Vector Store](https://img.shields.io/badge/memory-Chroma%2FFAISS-003B57.svg)]()
 [![Security](https://img.shields.io/badge/focus-AI%20Agent%20Security-critical.svg)]()
 [![Reproducibility](https://img.shields.io/badge/reproducible-yes-brightgreen.svg)]()
 
-> A research project investigating whether a local, stateful AI agent can be defended against poisoned long-term memories using provenance tagging and structural isolation, without breaking its ability to serve legitimate requests.
+> A research project investigating memory-poisoning vulnerability and defense efficacy across small, locally-deployed LLM agents (3B–8B) on consumer hardware. The project evaluates attack success rates, defense resource costs, and multi-agent propagation under resource constraints that existing literature has not systematically examined.
 
 ---
 
@@ -19,15 +17,16 @@
 - [Overview](#overview)
 - [Project Personnel](#project-personnel)
 - [Motivation](#motivation)
-- [Threat Model](#threat-model)
-- [Research Gaps Addressed](#research-gaps-addressed)
-- [Objectives](#objectives)
-- [Methodology](#methodology)
-- [Expected Results](#expected-results)
-- [Evaluation Metrics](#evaluation-metrics)
-- [Repository Structure](#repository-structure)
-- [Deliverables](#deliverables)
-- [Risks and Limitations](#risks-and-limitations)
+- [Research Question & Contributions](#research-question--contributions)
+- [System Architecture](#system-architecture)
+- [Model Selection](#model-selection)
+- [Attack Methodology](#attack-methodology)
+- [Defense Evaluation](#defense-evaluation)
+- [Multi-Agent Extension](#multi-agent-extension)
+- [Metrics](#metrics)
+- [Local Model Security Auditor (Tool)](#local-model-security-auditor-tool)
+- [Timeline / Roadmap](#timeline--roadmap)
+- [Related Work](#related-work)
 - [Data and Code Availability](#data-and-code-availability)
 - [References](#references)
 - [Status](#status)
@@ -36,9 +35,11 @@
 
 ## Overview
 
-MemGuard investigates a specific attack surface in stateful AI agents: **episodic memory poisoning**, where an adversary plants latent instructions in an agent's long-term memory store that remain dormant until retrieved into a future context and executed as if trusted. The project builds a local agent on **Ollama** and **SQLite FTS5**, simulates poisoning attacks against it, and develops a lightweight Python middleware that tags memory provenance at write time and structurally isolates untrusted memories at read time.
+This project investigates a specific attack surface in stateful AI agents — **episodic memory poisoning** — with a focus on small, locally-deployed models (3B–8B parameters) running on consumer hardware. Unlike prior work, which evaluates primarily on frontier-scale or cloud-hosted models, this project systematically varies model scale and quantization as primary experimental variables, measuring both attack success and defense resource cost (RAM, latency) as first-class metrics.
 
-The end goal is not just a working proof-of-concept exploit, but a measurable, reproducible defense: one that meaningfully reduces attack success without materially degrading the agent's ability to do its job.
+The project builds a local agent harness using **LM Studio** and a **vector store (Chroma or FAISS)**, simulates published memory-poisoning attacks (AgentPoison, MINJA, and direct injection), and evaluates defense mechanisms under the same resource-constrained conditions. A multi-agent extension examines lateral propagation of poisoned memories across independent agent personas, and a companion tool — the **Local Model Security Auditor** — repackages the evaluation pipeline into a usable application for scoring any local model's hardware fit and security profile.
+
+---
 
 ## Project Personnel
 
@@ -57,132 +58,190 @@ The end goal is not just a working proof-of-concept exploit, but a measurable, r
 
 ## Motivation
 
-AI agents are increasingly built to persist state across sessions, summarizing interactions into long-term memory rather than starting fresh each time. This is useful, but it introduces a durable attack vector: unlike a single poisoned prompt, a poisoned memory can sit dormant and be retrieved into a context the agent will treat as its own trusted history. Current runtime guardrails are largely designed to catch malicious input as it arrives, not malicious content the system already wrote into its own memory and now considers "known." Securing this specific retrieval pipeline is a precondition for deploying long-lived autonomous agents safely.
+AI agents are increasingly built to persist state across sessions, summarizing interactions into long-term memory rather than starting fresh each time. This introduces a durable attack vector: unlike a single poisoned prompt, a poisoned memory can sit dormant and be retrieved into a context the agent treats as its own trusted history. Current runtime guardrails are largely designed to catch malicious input as it arrives, not malicious content the system already wrote into its own memory and now considers "known."
 
-## Threat Model
+Existing attack and defense papers evaluate almost exclusively on capable or frontier-scale models, with Attack Success Rate (ASR) as the sole reported metric. No existing paper systematically varies model scale or quantization, tests across multiple small local models on real consumer hardware, or reports defense resource cost (RAM, latency) as a first-class metric. This project targets that gap directly.
 
-The project assumes a local, single-agent deployment where:
+---
 
-- The attacker can influence content that eventually gets written to the agent's episodic memory (e.g., through a tool call, a document ingested by the agent, or a prior conversation turn).
-- The attacker cannot directly access or modify the SQLite database file itself — the attack surface is the agent's normal write path, not raw file tampering.
-- The defense must operate without an internet connection or paid API access, consistent with the project's zero-cost, fully local design.
+## Research Question & Contributions
 
-## Research Gaps Addressed
+> Are small, locally-deployed LLMs more or less vulnerable to memory-poisoning attacks than large cloud models — and does that change with model size? Do existing defenses hold up under resource constraints nobody has tested them against?
 
-| Gap | Current State of Practice | This Project |
+**Four contributions:**
+
+1. **Cross-model benchmark** — memory-poisoning attack success across 3–4 small local LLMs (3B–8B), on real consumer hardware, with quantization held constant (Q4_K_M).
+2. **Defense evaluation** — testing existing defense mechanisms under resource constraints (RAM, latency) no prior evaluation reports, isolating the defense's cost from the model's own baseline speed.
+3. **Multi-agent extension** — examining whether poison spreads laterally between independent agents, and whether defenses that stop single-agent poisoning also stop propagation.
+4. **Shippable tool** — the *Local Model Security Auditor*, a usable app that scores a given local model's hardware fit and security profile using the same pipeline built for the paper.
+
+---
+
+## System Architecture
+
+| Layer | Choice | Notes |
 |---|---|---|
-| **Provenance at the memory layer** | Guardrails filter incoming prompts, not stored memory | Cryptographic tagging of every memory write records where it came from |
-| **Trust re-evaluation at retrieval** | Retrieved memories are treated as trusted context by default | Structural boundary wrapping marks retrieved memories as untrusted historical data, not instructions |
-| **Quantified defense efficacy** | Largely qualitative or anecdotal discussion of memory attacks | Explicit ASR/BTSR benchmark comparing undefended vs. defended agents |
-| **Fully local reproducibility** | Many agent security studies rely on hosted/proprietary LLMs | Entire pipeline runs on Ollama + SQLite, at zero API cost |
+| Model server | **LM Studio** (local OpenAI-compatible API) | Serves local GGUF models via a standard API endpoint. |
+| Agent orchestration | Custom minimal Python harness | Built for full control over memory read/write to inject poison precisely and measure cleanly. Matches the evaluation-harness approach used in MINJA, AgentPoison, and prior EHR-agent papers. |
+| Memory store | **Vector store (Chroma or FAISS)** | Required for embedding-space retrieval attacks (e.g., AgentPoison-style optimized trigger phrases). |
+| Agent types | **Two core types**: (1) QA/memory-augmented assistant, (2) sandboxed coding/tool-use agent | QA agent: directly comparable to most existing literature. Tool-use agent: sandboxed (Docker/restricted filesystem), with 2–3 fake tools (`send_email`, `run_shell_command`, `read_file`), measuring action-level attack success (execution, not just output). |
 
-## Objectives
+---
 
-- Design a stateful local AI agent utilizing **Ollama** and **SQLite FTS5** as its episodic memory.
-- Simulate and quantify memory poisoning attacks using a controlled, custom benchmark.
-- Develop a Python-based middleware that implements **cryptographic provenance tagging** during memory writes and **structural isolation** for retrieved memories.
-- Evaluate the defense mechanism's efficacy by measuring the **Attack Success Rate (ASR)** and the **Benign Task Success Rate (BTSR)**.
-- Produce a comprehensive manuscript suitable for submission to a reputable journal.
+## Model Selection
 
-## Methodology
+3–4 models spanning size and architecture, all runnable via LM Studio on a consumer laptop:
 
-**Phase 1 — Baseline Agent Setup**
-Build a local stateful agent using Ollama (e.g., Llama-3-8B-Instruct) with SQLite FTS5 as its episodic memory store, capable of writing to and reading from memory across sessions.
-
-**Phase 2 — Attack Benchmark Construction**
-Construct a benchmark of 50 benign memory interactions and 50 poisoned memory interactions, drawing on established prompt-injection taxonomies (e.g., OWASP ASI06) to design realistic latent-instruction payloads.
-
-**Phase 3 — Baseline Evaluation**
-Run the benchmark against the undefended agent and record the Attack Success Rate (ASR) — how often a poisoned memory is retrieved and executed as an instruction.
-
-**Phase 4 — Provenance-Tagging Middleware**
-Implement a write-path middleware that cryptographically tags each memory entry with metadata identifying its provenance (source, timestamp, trust level).
-
-**Phase 5 — Structural Boundary Wrapping**
-Implement a read-path middleware that wraps retrieved memories in explicit structural boundaries (e.g., XML/JSON delimiters), signaling to the LLM that this content is untrusted historical data rather than executable instruction.
-
-```text
-Baseline retrieval:   [raw poisoned memory text injected directly into context]
-Defended retrieval:   <untrusted_memory source="user_upload" trust="unverified">
-                         [poisoned memory text, isolated as passive data]
-                       </untrusted_memory>
-```
-
-**Phase 6 — Defended Evaluation**
-Re-run the full benchmark on the defended agent, recording both ASR (should drop) and Benign Task Success Rate (BTSR — should remain high), to assess whether the defense neutralizes attacks without breaking legitimate use.
-
-## Expected Results
-
-| Configuration | Purpose | Expected Outcome |
+| Model | Size | Rationale |
 |---|---|---|
-| Undefended agent | Establish attack baseline | High ASR on poisoned memories |
-| Provenance tagging only | Isolate contribution of write-side defense | Partial ASR reduction |
-| Structural wrapping only | Isolate contribution of read-side defense | Partial ASR reduction |
-| Full middleware (tagging + wrapping) | Main contribution | Substantial ASR reduction with minimal BTSR loss |
+| Llama-3.2-3B-Instruct | ~3B | Small end, common literature baseline |
+| Phi-3.5-mini-instruct | ~3.8B | Different training philosophy (synthetic-data-heavy), useful contrast |
+| Qwen2.5-7B-Instruct | ~7B | Mid-size, strong instruction-following |
+| Hermes-3-Llama-3.1-8B | ~8B | Strong tool-use fine-tuning; relevant for Phase 3 tool-use agent evaluation |
 
-These are **directional expectations**, not observed results. The actual magnitude of ASR reduction and any BTSR trade-off will depend on model instruction-following behavior and boundary format design, both of which are treated as open empirical questions rather than assumptions.
+Same quantization level (Q4_K_M) across all four by default. A quantization-level sweep (Q4 vs. Q5 vs. Q8 of the same model) is a low-cost add-on once the harness exists, isolating whether an effect is driven by model size or by quantization specifically.
 
-## Evaluation Metrics
+---
 
-- **Attack Success Rate (ASR)** — proportion of poisoned memories that are retrieved and executed as instructions
-- **Benign Task Success Rate (BTSR)** — proportion of legitimate memory retrievals that still function correctly under the defense
-- ASR vs. BTSR trade-off curve across boundary format variants (Markdown vs. XML vs. JSON)
-- Qualitative failure analysis of cases where the defense under- or over-blocks
+## Attack Methodology
 
-## Repository Structure
+Attacks are adapted from published, code-available work so ASR numbers are directly comparable to prior baselines:
 
-```
-memguard/
-├── agent/
-│   ├── ollama_client.py       # Wrapper for local LLM inference
-│   ├── memory_store.py        # SQLite FTS5 read/write interface
-│   └── stateful_agent.py      # Core agent loop
-├── attacks/
-│   ├── benchmark_generator.py # Builds the 50 benign / 50 poisoned dataset
-│   └── payloads/               # Injection payload templates (OWASP ASI06-informed)
-├── middleware/
-│   ├── provenance_tagging.py  # Write-path cryptographic tagging
-│   └── boundary_wrapping.py   # Read-path structural isolation
-├── evaluation/
-│   ├── run_baseline.py
-│   ├── run_defended.py
-│   └── metrics.py             # ASR / BTSR computation
-├── reports/
-│   └── figures/
-├── requirements.txt
-├── README.md
-└── LICENSE
-```
+| Attack | Vector | Source |
+|---|---|---|
+| Direct injection (baseline) | Obviously malicious prompt writes a false memory directly | Built in-house |
+| MINJA-style | Multi-turn, indirect; memory poisoned without looking suspicious in isolation | [MINJA](https://arxiv.org/abs/2503.03704) |
+| AgentPoison-style | Optimized trigger phrase manipulates embedding-space retrieval | [AgentPoison](https://github.com/AI-secure/AgentPoison) |
+| Adaptive attacker | Attacker aware of the defense, crafts poison to evade it | Built in-house, on top of the above |
 
-## Deliverables
+Task/dataset: adapted from an existing QA-style memory-agent benchmark (EHR-agent, MINJA, or AgentPoison's provided datasets) rather than built from scratch.
 
-- Documented and reproducible local testing pipeline (Ollama + SQLite).
-- Benchmark dataset consisting of 50 benign interactions and 50 poisoned injections.
-- Open-source Python middleware featuring provenance tagging and boundary wrapping.
-- Experimental report including ASR/BTSR data tables (baseline vs. defended system).
-- Scientific manuscript draft (Methodology, Results, and Discussion sections).
-- Public GitHub repository complete with a README and reproduction instructions.
+An additional custom benign/poisoned benchmark based on the OWASP ASI06 taxonomy is retained as an exploratory fifth attack category if time allows.
 
-## Risks and Limitations
+---
 
-- **Boundary format sensitivity** is the primary practical risk — the LLM's willingness to respect structural boundaries may vary by model and prompt phrasing. Mitigated by testing multiple formats (Markdown, XML, JSON) rather than committing to one upfront.
-- **Benchmark realism** is bounded by the custom nature of the poisoned dataset; results reflect performance against the specific attack patterns modeled, not an exhaustive attack surface.
-- **Single-model evaluation risk:** initial results are based on one instruction-tuned local model; generalization across model families is a natural extension, not a claim made by this phase.
-- **Security caveat:** this project is a research prototype demonstrating a defense concept, not a hardened production security control, and should not be treated as a complete solution for deployed agent systems.
+## Defense Evaluation
+
+The primary defense under evaluation is **Memory Sandbox** (Leong, 2026), which removes the agent's explicit memory-recall tool entirely rather than classifying memory content. This was the only mechanism in a recent large-scale evaluation (5,040 runs across 9 models) to hold up against poisoning attacks, though it has a known bypass on frontier-scale models. Testing whether this bypass requires frontier-scale reasoning — i.e., whether it appears at all on 3B–8B local models — is a genuinely open, falsifiable question tied directly to this project's core research question.
+
+A second, heavier contrast defense (simplified SMSR-style ablation/majority-vote, or a basic embedding-trust check) is implemented alongside Memory Sandbox so the resource-cost comparison has real spread. Both are evaluated across the full model × attack matrix, reporting ASR reduction, bypass rate, and resource cost.
+
+---
+
+## Multi-Agent Extension
+
+Each team member builds and runs a complete, independent multi-agent system on their own laptop using their assigned model. The setup is **not** a distributed system across collaborators' laptops — it is a homogeneous multi-persona system running sequentially on a single machine.
+
+- **Homogeneous agents**: one loaded model instantiated as 2–3 separate personas (e.g., Researcher, Synthesizer, Fact-Checker). Running multiple different models simultaneously is likely not feasible on consumer hardware, which is itself a relevant limitation to report.
+- **Independent memories + message-passing**: each persona has its own vector store; personas exchange messages and recommendations as part of the task loop.
+- **Turn-based**: agents take turns calling the same model server sequentially.
+
+**New attack surface:** lateral spread / contagion — poison one agent's memory, measure whether it propagates to a clean peer agent through the message-passing channel (directly analogous to lateral movement in a compromised network).
+
+**Defense extension:** test whether Memory Sandbox-style gating, or a simple "don't store unattributed peer claims without corroboration" rule, also blocks propagation, not just single-agent recall.
+
+---
+
+## Metrics
+
+**Attack effectiveness (per model, no defense):**
+- Attack Success Rate (ASR)
+- Injection Success Rate (ISR)
+
+**Defense effectiveness (per model, with defense):**
+- ASR reduction
+- False positive rate
+- Memory Sandbox bypass rate
+
+**Multi-agent:**
+- Propagation Rate (% of poisoned facts reaching a clean peer agent), with and without defense
+
+**Resource cost (tested across ≥2 defenses of contrasting cost):**
+- Added latency (ms) and RAM (MB), measured as the delta between undefended and defended runs of the *same* query — isolates the defense's cost from the model's own baseline speed.
+- Reported as a percentage of baseline latency (not just an absolute number): a fixed cost matters proportionally more on slow, CPU-only, small-model hardware.
+- CPU-only check (GPU forced off in LM Studio).
+- 5–10 repetitions per condition, mean ± variance reported.
+
+---
+
+## Local Model Security Auditor (Tool)
+
+A thin app/CLI wrapped around the same pipeline built for the paper. Point it at a model loaded in LM Studio; it runs the test suite and reports back — a repackaging of existing results into something usable.
+
+**Core (build unconditionally):** hardware-fit verdict (RAM / load-time / tokens-per-sec vs. available hardware), per-attack vulnerability breakdown, defense recommendation with cost tradeoff.
+
+**Worth adding:** multi-trial variance reporting, adaptive-attacker toggle.
+
+**Time-permitting:** quantization-level sweep, local run history (JSON/SQLite).
+
+**Out of scope:** general capability/quality benchmarking (different problem, well-covered elsewhere); any agentic/LLM-driven decision-making about *what* to test (test suite stays deterministic and scripted).
+
+---
+
+## Timeline / Roadmap
+
+| Phase | Focus |
+|---|---|
+| Phase 1 — Foundation | Harness, attack matrix, baseline (undefended) results across all models |
+| Phase 2 — Defense evaluation (single agent) | Memory Sandbox + contrast defense, ASR reduction, bypass rate, resource cost |
+| Phase 3 — Tool-use agent | Sandboxed tool-use agent, full attack + defense matrix, action-level ASR |
+| Phase 4 — Multi-agent extension | Multi-persona scaffold, propagation attacks, defense extension |
+| Phase 5 — Tool + writing | Auditor tool, full analysis, paper drafting, review passes, submission |
+
+Checkpoints at the end of Phases 1, 2, and 4 serve as milestone reviews.
+
+---
+
+## Related Work
+
+**Attacks**
+- [AgentPoison](https://github.com/AI-secure/AgentPoison) — embedding-space retrieval manipulation
+- [MINJA](https://arxiv.org/abs/2503.03704) — multi-turn indirect poisoning
+- MemoryGraft, ShadowMerge, OEP — self-evolving agent attacks
+- [Zombie Agents](https://arxiv.org) (Yang et al., 2026) — self-reinforcing injection
+
+**Defenses — content-inspection family (cited for distinction, not adopted as primary)**
+- Sunil et al. (2026) — trust-scoring defense
+- SuperLocalMemory / Bhardwaj — local-first storage with Bayesian trust scoring
+- A-MemGuard — memory guardrail system
+- SMSR — certified defense via majority voting
+- mguard — production memory-security tool
+- LiteLMGuard — quantization/jailbreak-focused (different threat model)
+
+**Defenses — architectural/capability family (this project's evaluation lineage)**
+- [Leong (2026)](https://arxiv.org/abs/2605.08442) — Memory Sandbox; large-scale evaluation (5,040 runs, 9 models)
+- [MemLineage](https://arxiv.org/abs/2605.14421) (Ouyang & Hou, 2026) — cryptographic provenance + lineage tracking
+- [TMA-NM](https://arxiv.org/abs/2606.24322) (Louck, 2026) — formally verified defense; argues content/lineage defenses are structurally insufficient against laundering attacks
+
+**Surveys / Benchmarks**
+- April 2026 survey on LLM agent memory security — anchor citation
+- Agent Security Bench — 13 backbones, no small/quantized-model axis, no resource-cost metric
+
+---
 
 ## Data and Code Availability
 
-All attack payload design draws on publicly available taxonomies (e.g., OWASP ASI06) at zero cost. All code, benchmark data, and middleware will be released in this repository to support full reproducibility.
+All attack payload design draws on publicly available taxonomies (e.g., OWASP ASI06) at zero cost. All code, benchmark data, and middleware are released under the [MIT License](LICENSE) in this repository to support full reproducibility. The entire pipeline runs locally on LM Studio + Chroma/FAISS, at zero API cost.
+
+---
 
 ## References
 
 - OWASP Agentic AI Security Initiative — [ASI06: Memory & Context Manipulation](https://owasp.org/www-project-top-10-for-large-language-model-applications/)
-- [Ollama](https://ollama.com/)
-- [SQLite FTS5](https://www.sqlite.org/fts5.html)
+- Leong (2026) — [arXiv:2605.08442](https://arxiv.org/abs/2605.08442)
+- MemLineage — Ouyang & Hou (2026) — [arXiv:2605.14421](https://arxiv.org/abs/2605.14421)
+- TMA-NM — Louck (2026) — [arXiv:2606.24322](https://arxiv.org/abs/2606.24322)
+- MINJA — [arXiv:2503.03704](https://arxiv.org/abs/2503.03704)
+- AgentPoison — [github.com/AI-secure/AgentPoison](https://github.com/AI-secure/AgentPoison)
+- [LM Studio](https://lmstudio.ai/)
+- [Chroma](https://www.trychroma.com/)
+- [FAISS](https://github.com/facebookresearch/faiss)
+
+---
 
 ## Status
 
-This repository is in active development. Baseline agent construction and benchmark generation (Phases 1–2) are the current focus; middleware and defended evaluation will be added incrementally as milestones are completed.
+This repository is in active development. Phase 1 (Foundation) is the current focus; subsequent phases will be added incrementally as milestones are completed.
 
 ---
 
