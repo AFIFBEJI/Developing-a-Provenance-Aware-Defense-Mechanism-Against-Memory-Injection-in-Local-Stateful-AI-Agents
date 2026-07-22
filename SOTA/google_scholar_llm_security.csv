@@ -1,0 +1,111 @@
+"Paper Title","Paper Link","Publication Year","Publication Type","Publication Title","Author Names","DOI","PDF Link","Snippet","Abstract"
+"A survey on trustworthy llm agents: Threats and countermeasures","https://scispace.com/paper/a-survey-on-trustworthy-llm-agents-threats-and-y5f6xkp23y3n","2025","Journal Article","","Miao Yu
+Fanci Meng
+Xinyun Zhou
+Shilong Wang
+Junyuan Mao
+Linsey Pang
+Tianlong Chen
+Kun Wang
+Xinfeng Li
+Yongfeng Zhang
+Bo An
+Qingsong Wen","10.1145/3711896.3736561","https://dl.acm.org/doi/pdf/10.1145/3711896.3736561","… advanced concept of Multi-agent System (MAS), making the “hyper LLM ecosystem” … the attack propagation in MAS. ❸ Tool Injection: ToolCommander [76] introduces a two-stage attack …",""
+"G-safeguard: A topology-guided security lens and treatment on llm-based multi-agent systems","https://scispace.com/paper/g-safeguard-a-topology-guided-security-lens-and-treatment-on-ida5icn5dwp8","2025","Journal Article","","Shilong Wang
+Guibin Zhang
+Miao Yu
+Guancheng Wan
+Fanqing Meng
+Chunbao Guo
+Kun Wang
+Yang Wang","10.18653/v1/2025.acl-long.359","https://aclanthology.org/2025.acl-long.359.pdf","… guided security lens and treatment for robust LLM-MAS, which leverages graph neural networks to detect anomalies on the multi-agent … propagation, each agent Ci is assigned an attack …",""
+"Secure multi-LLM agentic AI and agentification for edge general intelligence by zero-trust: A survey","https://scispace.com/paper/secure-multi-llm-agentic-ai-and-agentification-for-edge-mubct3zmi5kr","2025","Journal Article","arXiv.org","Yinqiu Liu
+Ruichen Zhang
+Haoxiang Luo
+Yijing Lin
+Geng Sun
+Dusit Niyato
+Hongyang Du
+Zehui Xiong
+Yonggang Wen
+Abbas Jamalipour
+Dong In Kim
+Ping Zhang","10.48550/arxiv.2508.19870","https://arxiv.org/pdf/2508.19870","… analyzing the security risks in multi-LLM systems within EGI … the lateral movement attacks that plague collaborative LLM … formed via decentralized multi-agent LLM frameworks. Each …","Agentification serves as a critical enabler of Edge General Intelligence (EGI), transforming massive edge devices into cognitive agents through integrating Large Language Models (LLMs) and perception, reasoning, and acting modules. These agents collaborate across heterogeneous edge infrastructures, forming multi-LLM agentic AI systems that leverage collective intelligence and specialized capabilities to tackle complex, multi-step tasks. However, the collaborative nature of multi-LLM systems introduces critical security vulnerabilities, including insecure inter-LLM communications, expanded attack surfaces, and cross-domain data leakage that traditional perimeter-based security cannot adequately address. To this end, this survey introduces zero-trust security of multi-LLM in EGI, a paradigmatic shift following the ``never trust, always verify''principle. We begin by systematically analyzing the security risks in multi-LLM systems within EGI contexts. Subsequently, we present the vision of a zero-trust multi-LLM framework in EGI. We then survey key technical progress to facilitate zero-trust multi-LLM systems in EGI. Particularly, we categorize zero-trust security mechanisms into model- and system-level approaches. The former and latter include strong identification, context-aware access control, etc., and proactive maintenance, blockchain-based management, etc., respectively. Finally, we identify critical research directions. This survey serves as the first systematic treatment of zero-trust applied to multi-LLM systems, providing both theoretical foundations and practical strategies."
+"Toward Secure LLM Agents: Threat Surfaces, Attacks, Defenses, and Evaluation","https://scispace.com/paper/zgMvZ7_5Yh0J","","","","Y Ling
+S Yu
+Z Chen
+C Fang","","https://arxiv.org/pdf/2606.10749","… of 247 papers on LLM agent security through an … LLM agents, showing how prompt injection, toolmediated control-flow hijacking, persistent state corruption, and multi-agent propagation …",""
+"The trust paradox in llm-based multi-agent systems: When collaboration becomes a security vulnerability","https://scispace.com/paper/the-trust-paradox-in-llm-based-multi-agent-systems-when-rku69q3k8ni8","2025","Journal Article","","Xu Zijie
+Wu Shiqing
+Zhang Le-feng
+he han","10.48550/arxiv.2510.18563","https://arxiv.org/pdf/2510.18563","… Overall, this work formalizes TVP as a systemic security property, establishes reproducible … as a first-class security variable in the design of LLM-based multi-agent systems (LLM-MAS). …","Multi-agent systems powered by large language models are advancing rapidly, yet the tension between mutual trust and security remains underexplored. We introduce and empirically validate the Trust-Vulnerability Paradox (TVP): increasing inter-agent trust to enhance coordination simultaneously expands risks of over-exposure and over-authorization. To investigate this paradox, we construct a scenario-game dataset spanning 3 macro scenes and 19 sub-scenes, and run extensive closed-loop interactions with trust explicitly parameterized. Using Minimum Necessary Information (MNI) as the safety baseline, we propose two unified metrics: Over-Exposure Rate (OER) to detect boundary violations, and Authorization Drift (AD) to capture sensitivity to trust levels. Results across multiple model backends and orchestration frameworks reveal consistent trends: higher trust improves task success but also heightens exposure risks, with heterogeneous trust-to-risk mappings across systems. We further examine defenses such as Sensitive Information Repartitioning and Guardian-Agent enablement, both of which reduce OER and attenuate AD. Overall, this study formalizes TVP, establishes reproducible baselines with unified metrics, and demonstrates that trust must be modeled and scheduled as a first-class security variable in multi-agent system design. "
+"A survey on the security of long-term memory in llm agents: Toward mnemonic sovereignty","https://scispace.com/paper/3PNzuBGZ5KEJ","","","","Z Lin
+C Li
+K Chen","","https://arxiv.org/pdf/2604.16548","… systems-level analogy to the provenance failure problem in LLM memory systems. In many … as a self-replicating prompt that, once accepted by one LLM in a multi-agent town, rewrites …",""
+"A systematic survey of security threats and defenses in LLM-based AI agents: A layered attack surface framework","https://scispace.com/paper/UhpD7ok79McJ","","","","K Chu","","https://arxiv.org/pdf/2604.23338","… A compromised sub-agent in an enterprise multi-agent pipeline can propagate malicious … granularity for shared multi-agent memory, cryptographic provenance attestation for memory …",""
+"Large model based agents: State-of-the-art, cooperation paradigms, security and privacy, and future trends","https://scispace.com/paper/large-model-based-agents-state-of-the-art-cooperation-6k793f4a3x99","2025","Journal Article","IEEE Communications Surveys and Tutorials","Yuntao Wang
+Yanghe Pan
+Zhou Su
+Yi Deng
+Quan Zhao
+Linkang Du
+Tom H. Luan
+Jiawen Kang
+Dusit Niyato","10.1109/comst.2025.3576176","https://arxiv.org/pdf/2409.14457","… security vulnerabilities and privacy risks associated with LM agents, particularly in multi-agent … on the general framework design of LLM agents and multi-agent systems, as well as their …",""
+"Security considerations for multi-agent systems","https://scispace.com/paper/EfSWnaLQyuMJ","","","","T Nguyen
+M Ndebugre
+D Arremsetty","","https://arxiv.org/pdf/2603.09002","… Multi-agent chat interfaces obscure provenance further be… Quantization applied to LLM weights affects the model’s ability to … Tool selection bias propagation occurs when reasoning …",""
+"Securing agentic ai: Threat modeling and risk analysis for network monitoring agentic ai system","https://scispace.com/paper/securing-agentic-ai-threat-modeling-and-risk-analysis-for-o0mknxrq5047","2025","Journal Article","arXiv.org","P. Zambare
+Venkata Nikhil Thanikella
+Ying Liu","10.48550/arxiv.2508.10043","https://arxiv.org/pdf/2508.10043","… of threats that occur in the LLM-based network surveillance … eg instruction manipulation, multi agent poisoning- and matched … occur in LLM-based agents to establish the provenance of …","When combining Large Language Models (LLMs) with autonomous agents, used in network monitoring and decision-making systems, this will create serious security issues. In this research, the MAESTRO framework consisting of the seven layers threat modeling architecture in the system was used to expose, evaluate, and eliminate vulnerabilities of agentic AI. The prototype agent system was constructed and implemented, using Python, LangChain, and telemetry in WebSockets, and deployed with inference, memory, parameter tuning, and anomaly detection modules. Two practical threat cases were confirmed as follows: (i) resource denial of service by traffic replay denial-of-service, and (ii) memory poisoning by tampering with the historical log file maintained by the agent. These situations resulted in measurable levels of performance degradation, i.e. telemetry updates were delayed, and computational loads were increased, as a result of poor system adaptations. It was suggested to use a multilayered defense-in-depth approach with memory isolation, validation of planners and anomaly response systems in real-time. These findings verify that MAESTRO is viable in operational threat mapping, prospective risk scoring, and the basis of the resilient system design. The authors bring attention to the importance of the enforcement of memory integrity, paying attention to the adaptation logic monitoring, and cross-layer communication protection that guarantee the agentic AI reliability in adversarial settings."
+"A survey of llm-driven ai agent communication: Protocols, security risks, and defense countermeasures","https://scispace.com/paper/a-survey-of-llm-driven-ai-agent-communication-protocols-5xihscf0sz61","","Journal Article","arXiv.org","Dezhang Kong
+Shi Lin
+Zhebo Wang
+Minghao Li
+Yufeng Li
+Yilun Zhang
+Zeyang Sha
+Yuyuan Li
+Changting Lin
+Xun Wang
+Xuan Liu
+Ningyu Zhang
+Muhammad Khurram Khan","10.48550/arxiv.2506.19676","https://arxiv.org/pdf/2506.19676","… security analyses about AA and AE. Survey [145] systematically summarizes seven security challenges for multi-agent … queries to simulate the propagation mechanism of computer …",""
+"Memory poisoning and secure multi-agent systems","https://scispace.com/paper/5c3a_F3iMgoJ","","","","V Torra
+M Bras-Amorós","","https://arxiv.org/pdf/2603.20357","… framework for the deployment of LLM-based software. LLMs-… When databases are updated, provenance structures can en… mitigation strategies based on security technologies. More …",""
+"Toward Trustworthy Agentic AI: A Multimodal Framework for Preventing Prompt Injection Attacks","https://scispace.com/paper/QxQRGJqhaSEJ","","","","TA Syed
+MA Almutairi
+MA Moaty","","https://arxiv.org/pdf/2512.23557","… which provides security to … provenance registry of tracking trust through multiagent courses of action and a masking plan to generate a trust strategy, restricting unsafe content at an LLM …",""
+"Exploring LLM-based multi-agent situation awareness for zero-trust space-air-ground integrated network","https://scispace.com/paper/exploring-llm-based-multi-agent-situation-awareness-for-zero-jw2vug35mqj2","","Journal Article","IEEE Journal on Selected Areas in Communications","Gu Nan
+Hongcan Guo
+Hanqing Mu
+Long Wang
+Jiayi Li
+Baohua Qin
+Qimei Cui
+Tony Q. S. Quek","10.1109/jsac.2025.3560042","","… Our LLM-SA first learns to extract salient attack features from information generated by SAG-… 3) Dynamic LLM-based multi-agent: We compare our dynamic multi-agent LLM with four …",""
+"Red-teaming llm multi-agent systems via communication attacks","https://scispace.com/paper/red-teaming-llm-multi-agent-systems-via-communication-5r21xm4swbyl","2025","Journal Article","arXiv.org","Pengfei He
+Yuping Lin
+Shen Dong
+Han Xu
+Yue Xing
+Hui Liu","10.48550/arxiv.2502.14847","https://aclanthology.org/2025.findings-acl.349.pdf","… We consider a communication attack within an LLM-MAS, where the attacker can intercept and manipulate communication between a victim agent and other agents to achieve …",""
+"Trustworthy LLM Agents: Threats and Countermeasures","https://scispace.com/paper/trustworthy-llm-agents-threats-and-countermeasures-5qgs5941mnti","2025","Journal Article","","Vignan Chintala","10.36227/techrxiv.175519209.95291850/v1","https://www.techrxiv.org/doi/pdf/10.36227/techrxiv.175519209.95291850","… LLM agents, examining vulnerabilities across multiple dimensions including prompt injection, multi-agent … of LLM agents and the development of adequate security frameworks. Our …",""
+"Liva: A multi-agent llm-assisted system for iot vulnerability analysis","https://scispace.com/paper/Kxr6QNCKEyUJ","","","","Z Yang
+H Peng
+Y Jiang
+J Liu
+H Luo","","","… Multi-agent LLM System. we introduce a novel multi-agent taint analysis System based on fine-tuned … By implementing a taint propagation agent and a vulnerability inference agent, Liva …",""
+"AgentLeak: A Benchmark for Internal-Channel Privacy Leakage in Multi-Agent LLM Systems","https://scispace.com/paper/83UowZL8bX8J","","","","F El Yagoubi
+G Badu-Marfo
+R Al Mallah","","https://ieeexplore.ieee.org/iel8/6287639/6514899/11569042.pdf","… minimization perspective, where the internal propagation of sensitive data is permitted only … our taxonomy, specifically because multiagent systems introduce attack surfaces that do not …",""
+"L2M-AID: Autonomous Cyber-Physical Defense by Fusing Semantic Reasoning of Large Language Models with Multi-Agent Reinforcement Learning (Preprint)","https://scispace.com/paper/l2m-aid-autonomous-cyber-physical-defense-by-fusing-semantic-oou3honfi8sn","2025","Journal Article","","Xu Tianxiang
+Wen Zhi-chao
+Zhao Xinyu
+Wang Jun
+Li Yan
+Liu Chang","10.48550/arxiv.2510.07363","https://arxiv.org/pdf/2510.07363","… Autonomous Industrial Defense using LLM-empowered, Multi-agent reinforcement learning. … driven by a Large Language Model (LLM), to achieve adaptive and resilient security. The …","The increasing integration of Industrial IoT (IIoT) exposes critical cyber-physical systems to sophisticated, multi-stage attacks that elude traditional defenses lacking contextual awareness. This paper introduces L2M-AID, a novel framework for Autonomous Industrial Defense using LLM-empowered, Multi-agent reinforcement learning. L2M-AID orchestrates a team of collaborative agents, each driven by a Large Language Model (LLM), to achieve adaptive and resilient security. The core innovation lies in the deep fusion of two AI paradigms: we leverage an LLM as a semantic bridge to translate vast, unstructured telemetry into a rich, contextual state representation, enabling agents to reason about adversary intent rather than merely matching patterns. This semantically-aware state empowers a Multi-Agent Reinforcement Learning (MARL) algorithm, MAPPO, to learn complex cooperative strategies. The MARL reward function is uniquely engineered to balance security objectives (threat neutralization) with operational imperatives, explicitly penalizing actions that disrupt physical process stability. To validate our approach, we conduct extensive experiments on the benchmark SWaT dataset and a novel synthetic dataset generated based on the MITRE ATT&amp;CK for ICS framework. Results demonstrate that L2M-AID significantly outperforms traditional IDS, deep learning anomaly detectors, and single-agent RL baselines across key metrics, achieving a 97.2% detection rate while reducing false positives by over 80% and improving response times by a factor of four. Crucially, it demonstrates superior performance in maintaining physical process stability, presenting a robust new paradigm for securing critical national infrastructure. "
+"A Multi-Agent System for Cybersecurity Threat Detection and Correlation Using Large Language Models","https://scispace.com/paper/a-multi-agent-system-for-cybersecurity-threat-detection-and-v6uo85j474bh","2025","Journal Article","IEEE Access","Yasser Hmimou
+Mohamed Tabaa
+Azeddine Khiat
+Zineb Hidila","10.1109/access.2025.3602681","https://ieeexplore.ieee.org/iel8/6287639/6514899/11141466.pdf","… In this work, we present an LLM-enhanced multi-agent … These studies support our strategy of linking security … across the system, reduces error propagation and provides a clear control …","As cyber-attacks rapidly evolve across communication, infrastructure and data layers, traditional security solutions such as rule-based intrusion detection systems (IDS) or signature-based antivirus programs are effective at detecting known threats, but they often lack the contextual understanding and semantic interpretation necessary to detect complex or evolving attacks. For example, spear-phishing campaigns, advanced persistent threats (APTs), and multi-stage attacks often escape detection due to their subtle and context-dependent nature. This limitation creates a critical gap in detecting coordinated or subtle attack patterns that span multiple systems and domains. The need for semantic understanding, cross-domain visibility, and adaptive detection is increasingly urgent, particularly as threat actors employ polymorphic and AI-driven strategies that traditional systems cannot interpret or correlate effectively. This paper presents a modular multi-agent architecture that integrates established cybersecurity analysis tools with large language models (LLMs) to achieve intelligent, explicable and highly accurate detection of threats across diverse data types. Three specialized agents: 1) email verification, 2) log analysis, and 3) IP address scanning each operate independently with tailored detection pipelines that combine domain-specific tools and LLM-powered semantic analysis components to identify, characterize, and report threats specific to their domain. At the core of the system lies a contextual recommendation system that processes and cross-analyzes the outputs of all specialized agents to detect complex threat patterns such as multi-vector, time-based, or stealth attacks that would otherwise evade isolated detection mechanisms. The evaluation on benchmark datasets, including CIC-IDS 2017, SpamAssassin, and custom simulated network environments, demonstrates threat detection accuracy of 93.6%, multi-agent correlation accuracy of 87%, and false positive reduction of 41.3% compared to traditional approaches. The use of LLMs for both structured explanations and chain-of-thought reporting further enhances analyst confidence and reduces triage time."

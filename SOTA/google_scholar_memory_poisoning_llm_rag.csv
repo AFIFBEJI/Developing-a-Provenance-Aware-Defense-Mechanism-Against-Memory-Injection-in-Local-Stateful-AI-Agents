@@ -1,0 +1,83 @@
+"Paper Title","Paper Link","Publication Year","Publication Type","Publication Title","Author Names","DOI","PDF Link","Snippet","Abstract"
+"Agentpoison: Red-teaming llm agents via poisoning memory or knowledge bases","https://scispace.com/paper/agentpoison-red-teaming-llm-agents-via-poisoning-memory-or-kl0o6xv0zg9s","2024","Journal Article","","Zhaorun Chen
+Bo Li
+Dawn Song
+Zhen Xiang
+Chaowei Xiao","10.52202/079017-4136","https://proceedings.neurips.cc/paper_files/paper/2024/file/eb113910e9c3f6242541c1652e30dfd6-Paper-Conference.pdf","… attack targeting generic and RAG-based LLM agents by … We inject the poisoning instances into the RAG knowledge … we treat the LLM as an one-step optimizer and prompt it to obtain b …",""
+"{PoisonedRAG}: Knowledge corruption attacks to {Retrieval-Augmented} generation of large language models","https://scispace.com/paper/E9Vh0e5EmEwJ","","","","W Zou
+R Geng
+B Wang
+J Jia","","https://www.usenix.org/system/files/usenixsecurity25-zou-poisonedrag.pdf","… input of an LLM such that the LLM could follow the injected … We can extend prompt injection attacks to attack RAG. For … , Naive Attack, Corpus Poisoning Attack, and GCG Attack are …",""
+"Towards secure retrieval-augmented generation: A comprehensive review of threats, defenses and benchmarks","https://scispace.com/paper/X5usUSKQ9HMJ","","","","Y Mu
+H Hu
+F Li
+Q Yuan
+J Wu
+Z Liu
+P Liu","","https://arxiv.org/pdf/2603.21654","… The deep integration of Memory management with RAG has … final output of an LLM by compromising the RAG system’s … vectors such as prompt injection and data contamination, and by …",""
+"Securing Retrieval-Augmented Generation: A Taxonomy of Attacks, Defenses, and Future Directions","https://scispace.com/paper/Zoxx-TY_UFwJ","","","","Y Xu
+M Zhang
+Z Ge
+H Li
+N Hu
+Y Zhang","","https://arxiv.org/pdf/2604.08304","… retrievable pages or files, agent memory, or the queries sent to … the LLM that do not need external knowledge, such as prompt-… PIDP-Attack [97] combines prompt injection with database …",""
+"Exploring the security threats of knowledge base poisoning in retrieval-augmented code generation","https://scispace.com/paper/exploring-the-security-threats-of-knowledge-base-poisoning-o75kqyfml8bf","2025","Journal Article","arXiv.org","Bo Lin
+Shangwen Wang
+Liqian Chen
+Xiaoguang Mao","10.48550/arxiv.2502.03233","https://arxiv.org/pdf/2502.03233","… We investigate the LLMgenerated code security across … However, it has overlooked the security implications of RAG… Prompt 1 illustrates the prompt we used to generate queries, …",""
+"Benchmarking poisoning attacks against retrieval-augmented generation","https://scispace.com/paper/benchmarking-poisoning-attacks-against-retrieval-augmented-92v10qb8xour","2025","Journal Article","","Bo Zhang
+Hongbo Xin
+Jiatong Li
+Dongzhe Zhang
+Minghong Fang
+Zhuqing Liu
+L. S. Nie
+Zheli Liu","10.48550/arxiv.2505.18543","https://arxiv.org/pdf/2505.18543?","… and adapts RAG poisoning attacks to the LLM agent setting (… Prompt injection was originally proposed to manipulate LLM … defense designs a RAG system prompt that requires the LLM …","Retrieval-Augmented Generation (RAG) has proven effective in mitigating hallucinations in large language models by incorporating external knowledge during inference. However, this integration introduces new security vulnerabilities, particularly to poisoning attacks. Although prior work has explored various poisoning strategies, a thorough assessment of their practical threat to RAG systems remains missing. To address this gap, we propose the first comprehensive benchmark framework for evaluating poisoning attacks on RAG. Our benchmark covers 5 standard question answering (QA) datasets and 10 expanded variants, along with 13 poisoning attack methods and 7 defense mechanisms, representing a broad spectrum of existing techniques. Using this benchmark, we conduct a comprehensive evaluation of all included attacks and defenses across the full dataset spectrum. Our findings show that while existing attacks perform well on standard QA datasets, their effectiveness drops significantly on the expanded versions. Moreover, our results demonstrate that various advanced RAG architectures, such as sequential, branching, conditional, and loop RAG, as well as multi-turn conversational RAG, multimodal RAG systems, and RAG-based LLM agent systems, remain susceptible to poisoning attacks. Notably, current defense techniques fail to provide robust protection, underscoring the pressing need for more resilient and generalizable defense strategies. "
+"Memory poisoning attack and defense on memory based LLM-agents","https://scispace.com/paper/memory-poisoning-attack-and-defense-on-memory-based-llm-cnxqvfbtnfhg","2026","Journal Article","","B. Ratna Sunil
+Isheeta Sinha
+Piyush Maheshwari
+Shantanu Todmal
+Shreyan Malik
+S. M. Mishra","10.48550/arxiv.2601.05504","https://arxiv.org/pdf/2601.05504","… MINJA (Memory Injection Attack), a practical attack that … , which targets RAG knowledge bases and memory stores but … number of memories with malicious indication prompt included …","Large language model agents equipped with persistent memory are vulnerable to memory poisoning attacks, where adversaries inject malicious instructions through query only interactions that corrupt the agents long term memory and influence future responses. Recent work demonstrated that the MINJA (Memory Injection Attack) achieves over 95 % injection success rate and 70 % attack success rate under idealized conditions. However, the robustness of these attacks in realistic deployments and effective defensive mechanisms remain understudied. This work addresses these gaps through systematic empirical evaluation of memory poisoning attacks and defenses in Electronic Health Record (EHR) agents. We investigate attack robustness by varying three critical dimensions: initial memory state, number of indication prompts, and retrieval parameters. Our experiments on GPT-4o-mini, Gemini-2.0-Flash and Llama-3.1-8B-Instruct models using MIMIC-III clinical data reveal that realistic conditions with pre-existing legitimate memories dramatically reduce attack effectiveness. We then propose and evaluate two novel defense mechanisms: (1) Input/Output Moderation using composite trust scoring across multiple orthogonal signals, and (2) Memory Sanitization with trust-aware retrieval employing temporal decay and pattern-based filtering. Our defense evaluation reveals that effective memory sanitization requires careful trust threshold calibration to prevent both overly conservative rejection (blocking all entries) and insufficient filtering (missing subtle attacks), establishing important baselines for future adaptive defense mechanisms. These findings provide crucial insights for securing memory-augmented LLM agents in production environments. "
+"A survey on the security of long-term memory in llm agents: Toward mnemonic sovereignty","https://scispace.com/paper/3PNzuBGZ5KEJ","","","","Z Lin
+C Li
+K Chen","","https://arxiv.org/pdf/2604.16548","… memory security is neither a subsidiary branch of prompt injection nor a synonym for RAG security… primary works directly on LLM agent or RAG memory security, distributed by evidence …",""
+"Pr-attack: Coordinated prompt-rag attacks on retrieval-augmented generation in large language models via bilevel optimization","https://scispace.com/paper/pr-attack-coordinated-prompt-rag-attacks-on-retrieval-zgyrkmivdkiu","2025","Proceedings Article","","Yang Jiao
+Xiaodong Wang
+Kai Yang","10.1145/3726302.3730058","https://dl.acm.org/doi/pdf/10.1145/3726302.3730058","… attack differs significantly from simply combining existing prompt attack and RAG-based LLM attack … the prompts for the users and inject texts into the knowledge database [15]. Different …",""
+"Memory poisoning and secure multi-agent systems","https://scispace.com/paper/5c3a_F3iMgoJ","","","","V Torra
+M Bras-Amorós","","https://arxiv.org/pdf/2603.20357","… decisions are based on LLM technology enlarged with retrieval-augmented generation (RAG). The … The problem also has relation to prompt hacking [11] (on both prompt injection and …",""
+"MemoryGraft: Persistent compromise of LLM agents via poisoned experience retrieval","https://scispace.com/paper/ZVNJhvSqrZ4J","","","","SS Srivastava
+H He","","https://arxiv.org/pdf/2512.16962","… ’s long-term memory. Unlike traditional prompt injections that are transient, or standard RAG … We introduce MemoryGraft, a persistent memory poisoning attack that exploits the semantic …",""
+"Prompt Injection Attacks in Large Language Models and AI Agent Systems: A Comprehensive Review of Vulnerabilities, Attack Vectors, and Defense …","https://scispace.com/paper/t1DaE6OG9TgJ","","","","S Gulyamov
+S Gulyamov
+A Rodionov
+R Khursanov","","","… memory surviving across chat sessions via memory RAG … % attack success rates [11], proving that RAG poisoning scales … when prompt injection causes a data breach—the LLM provider…",""
+"Memory poisoning attacks on retrieval-augmented Large Language Model agents via deceptive semantic reasoning","https://scispace.com/paper/wDnhHr85HJwJ","","","","H Jing
+F Li
+Y Dong
+W Zhou
+R Liu","","","… acceptance of specific attack tools. The optimized decisions are injected into the knowledge … This reveals critical vulnerabilities in RAG based LLM agents under adversarial historical …",""
+"Backdoored retrievers for prompt injection attacks on retrieval augmented generation of large language models","https://scispace.com/paper/backdoored-retrievers-for-prompt-injection-attacks-on-6rmikswq97xc","2024","Journal Article","","Cody Clop
+Yannick Teglia","10.48550/arxiv.2410.14479","https://arxiv.org/pdf/2410.14479","… corpus poisoning techniques and propose a novel backdoor attack … In this paper, we explore a broader set of attack objectives. … of LLM vulnerabilities to RAG prompt injection attacks, we …","Large Language Models (LLMs) have demonstrated remarkable capabilities in generating coherent text but remain limited by the static nature of their training data. Retrieval Augmented Generation (RAG) addresses this issue by combining LLMs with up-to-date information retrieval, but also expand the attack surface of the system. This paper investigates prompt injection attacks on RAG, focusing on malicious objectives beyond misinformation, such as inserting harmful links, promoting unauthorized services, and initiating denial-of-service behaviors. We build upon existing corpus poisoning techniques and propose a novel backdoor attack aimed at the fine-tuning process of the dense retriever component. Our experiments reveal that corpus poisoning can achieve significant attack success rates through the injection of a small number of compromised documents into the retriever corpus. In contrast, backdoor attacks demonstrate even higher success rates but necessitate a more complex setup, as the victim must fine-tune the retriever using the attacker poisoned dataset. "
+"InjecMEM: Memory injection attack on LLM agent memory systems","https://scispace.com/paper/6VhRVLESTDgJ","","","","H Tian
+Z Sha
+J Wang
+Y Liu
+Z Huang
+X Huang","","https://openreview.net/pdf?id=QVX6hcJ2um","… static, trigger-optimization attacks in RAG and explain why prior … Finally, we demonstrate indirect poisoning via tools. A … During optimization we use fused prompt formats that mirror the …",""
+"Prompt Injection Attacks in Large Language Models and AI Agent Systems: A Comprehensive Review of Vulnerabilities, Attack Vectors, and Defense Mechanisms","https://scispace.com/paper/prompt-injection-attacks-in-large-language-models-and-ai-6p8njfahgk30","2026","Journal Article","","Saidakhror Gulyamov
+Saidakhror Gulyamov
+Andrey Rodionov
+Rustam Khursanov
+K. Mekhmonov
+Djakhongir Babaev
+Akmaljon Rakhimjonov","10.3390/info17010054","https://www.preprints.org/frontend/manuscript/40097b1a4d5fc29a26a1088e674be312/download_pub","… through Retrieval-Augmented Generation (RAG) poisoning. … actionable mitigation strategies based on OWASP Top 10 for LLM … memory surviving across chat sessions via memory RAG …",""
+"Overcoming the Retrieval Barrier: Indirect Prompt Injection in the Wild for LLM Systems","https://scispace.com/paper/overcoming-the-retrieval-barrier-indirect-prompt-injection-c2vofy8r7ssy","2026","Journal Article","","Hongyan Chang
+Ergute Bao
+Xinjian Luo
+Ting Yu","10.48550/arxiv.2601.07072","https://arxiv.org/pdf/2601.07072","… external data sources with hidden instructions that the LLM … of indirect prompt injection across both RAG and agentic systems. … based LLM systems under indirect prompt injection attack. …","Large language models (LLMs) increasingly rely on retrieving information from external corpora. This creates a new attack surface: indirect prompt injection (IPI), where hidden instructions are planted in the corpora and hijack model behavior once retrieved. Previous studies have highlighted this risk but often avoid the hardest step: ensuring that malicious content is actually retrieved. In practice, unoptimized IPI is rarely retrieved under natural queries, which leaves its real-world impact unclear. We address this challenge by decomposing the malicious content into a trigger fragment that guarantees retrieval and an attack fragment that encodes arbitrary attack objectives. Based on this idea, we design an efficient and effective black-box attack algorithm that constructs a compact trigger fragment to guarantee retrieval for any attack fragment. Our attack requires only API access to embedding models, is cost-efficient (as little as $0.21 per target user query on OpenAI's embedding models), and achieves near-100% retrieval across 11 benchmarks and 8 embedding models (including both open-source models and proprietary services). Based on this attack, we present the first end-to-end IPI exploits under natural queries and realistic external corpora, spanning both RAG and agentic systems with diverse attack objectives. These results establish IPI as a practical and severe threat: when a user issued a natural query to summarize emails on frequently asked topics, a single poisoned email was sufficient to coerce GPT-4o into exfiltrating SSH keys with over 80% success in a multi-agent workflow. We further evaluate several defenses and find that they are insufficient to prevent the retrieval of malicious text, highlighting retrieval as a critical open vulnerability. "
+"System prompt poisoning: Persistent attacks on large language models beyond user injection","https://scispace.com/paper/system-prompt-poisoning-persistent-attacks-on-large-language-g7dimpgxj3do","2025","Journal Article","arXiv.org","Jiawei Guo
+Haipeng Cai","10.48550/arxiv.2505.06493","https://arxiv.org/pdf/2505.06493","… (RAG), which are proven to be effective for improving LLM … In this case, LLMs will not hold any memory about previous … get access to system prompt of the LLM software system and …",""
+"Adversarial and Multilingual Threats in Retrieval-Augmented Generation: From Prompt Injection to Model Exploitation","https://scispace.com/paper/adversarial-and-multilingual-threats-in-retrieval-augmented-1poia1mr431k","2025","Journal Article","","Mohamed Bader-El-Den","10.1109/gaclm67198.2025.11231998","","… RAG architectures enhance LLM capabilities by fusing parametric memory (ie, pre-trained … developed to evaluate the security vulnerabilities of RetrievalAugmented Generation (…",""
+"Adversarial Threats to AI-Augmented Security Operations: A Systematic Survey","https://scispace.com/paper/B9D372b8OPoJ","","","","KR YEDUGURU","","https://assets-eu.researchsquare.com/files/rs-9602180/v1/dd226be9-6bf7-4b24-a3fa-d4137832d034.pdf","… ranks prompt injection as the primary vulnerability in LLM … introduces an additional attack surface—the agent's memory of its … that RAG poisoning leaves detectable fingerprints in LLM …",""

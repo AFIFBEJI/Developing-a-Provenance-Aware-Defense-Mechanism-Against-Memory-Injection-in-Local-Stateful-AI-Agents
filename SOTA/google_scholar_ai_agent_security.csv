@@ -1,0 +1,98 @@
+"Paper Title","Paper Link","Publication Year","Publication Type","Publication Title","Author Names","DOI","PDF Link","Snippet","Abstract"
+"Agentdojo: A dynamic environment to evaluate prompt injection attacks and defenses for llm agents","https://scispace.com/paper/agentdojo-a-dynamic-environment-to-evaluate-prompt-injection-w17lfaozlpf3","2024","Journal Article","","Mislav Balunovic
+Luca Beurer-Kellner
+Edoardo Debenedetti
+Marc Fischer
+Florian Tramèr
+Jie Zhang","10.52202/079017-2636","https://proceedings.neurips.cc/paper_files/paper/2024/file/97091a5177d8dc64b1da8bf3e1f6fb54-Paper-Datasets_and_Benchmarks_Track.pdf","… we introduce AgentDojo, an evaluation framework for agents … a prompt injection defense that combines an LLM agent (… and ablations on attack and defense components, we focus …",""
+"Wasp: Benchmarking web agent security against prompt injection attacks","https://scispace.com/paper/wasp-benchmarking-web-agent-security-against-prompt-l9w562xrf8t3","2025","Journal Article","arXiv.org","Ivan Evtimov
+Arman Zharmagambetov
+Aaron Grattafiori
+Chuan Guo
+Kamalika Chaudhuri","10.48550/arxiv.2504.18575","https://proceedings.neurips.cc/paper_files/paper/2025/file/1c9818387f5dd0a0bc151214660f059d-Paper-Datasets_and_Benchmarks_Track.pdf","… AI agent security. The goal of our paper is to develop a benchmark for the security of generalist … real-world llm-integrated applications with indirect prompt injection. In Proceedings of the …",""
+"The attack and defense landscape of agentic ai: A comprehensive survey","https://scispace.com/paper/DhjYILm5YXgJ","","","","J Kim
+X Liu
+Z Wang
+S Qiu
+B Li
+W Guo","","https://arxiv.org/pdf/2603.11088","… AI agent security, including an analysis of the design space, … For risks that exist in nonagentic LLMs (eg, jailbreak, … : Human-level safety and security evaluation for llm agents. …",""
+"Security challenges in ai agent deployment: Insights from a large scale public competition","https://scispace.com/paper/security-challenges-in-ai-agent-deployment-insights-from-a-vjoaq7ospqyt","2025","Journal Article","","Zou, Andy
+Lin, Maxwell
+Jones, Eliot
+Davies, Xander
+Patel, Jai
+Kirk, Robert
+Gal, Yarin
+Hendrycks, Dan
+Kolter, J. Zico
+Fredrikson, Matt","10.48550/arxiv.2507.20526","https://proceedings.neurips.cc/paper_files/paper/2025/file/73368bc7644c054b5bcc6490a8f2fb1c-Paper-Datasets_and_Benchmarks_Track.pdf","… -world security risks affecting agent-based LLM deployments … we introduce an AI Agent Red Teaming benchmark, featuring … multi-turn prompt injection attack on our interface. Here, the …","Recent advances have enabled LLM-powered AI agents to autonomously execute complex tasks by combining language model reasoning with tools, memory, and web access. But can these systems be trusted to follow deployment policies in realistic environments, especially under attack? To investigate, we ran the largest public red-teaming competition to date, targeting 22 frontier AI agents across 44 realistic deployment scenarios. Participants submitted 1.8 million prompt-injection attacks, with over 60,000 successfully eliciting policy violations such as unauthorized data access, illicit financial actions, and regulatory noncompliance. We use these results to build the Agent Red Teaming (ART) benchmark - a curated set of high-impact attacks - and evaluate it across 19 state-of-the-art models. Nearly all agents exhibit policy violations for most behaviors within 10-100 queries, with high attack transferability across models and tasks. Importantly, we find limited correlation between agent robustness and model size, capability, or inference-time compute, suggesting that additional defenses are needed against adversarial misuse. Our findings highlight critical and persistent vulnerabilities in today's AI agents. By releasing the ART benchmark and accompanying evaluation framework, we aim to support more rigorous security assessment and drive progress toward safer agent deployment. "
+"Agentvigil: Automatic black-box red-teaming for indirect prompt injection against llm agents","https://scispace.com/paper/agentvigil-automatic-black-box-red-teaming-for-indirect-ce69a2ralj51","2025","Journal Article","","Zhun Wang
+Vincent Siu
+Zhe Ye
+Tianneng Shi
+Yuzhou Nie
+Xuandong Zhao
+Chenguang Wang
+Guo Wenbo
+Dawn Song","10.18653/v1/2025.findings-emnlp.1258","https://aclanthology.org/anthology-files/anthology-files/pdf/findings/2025.findings-emnlp.1258.pdf","… on black-box LLM agents. At a high level, given a target LLM agent and a set of seeds for attack instructions, … On VWA-adv benchmark, we evaluate performance across two types of …",","
+"Agentarmor: Enforcing program analysis on agent runtime trace to defend against prompt injection","https://scispace.com/paper/agentarmor-enforcing-program-analysis-on-agent-runtime-trace-nc5j4pn0l3c4","2025","Journal Article","arXiv.org","Peiran Wang
+Yang Liu
+Yunfei Lu
+Yifeng Cai
+Hongbo Chen
+Qingyou Yang
+Jie Zhang
+Jue Hong
+Ye Wu","10.48550/arxiv.2508.01249","https://arxiv.org/pdf/2508.01249?","… new perspective: treat the LLM agent not merely as a language … To reason about the effects and safety of agent runtime, we … Our evaluation on the AgentDojo benchmark shows that …","Large Language Model (LLM) agents offer a powerful new paradigm for solving various problems by combining natural language reasoning with the execution of external tools. However, their dynamic and non-transparent behavior introduces critical security risks, particularly in the presence of prompt injection attacks. In this work, we propose a novel insight that treats the agent runtime traces as structured programs with analyzable semantics. Thus, we present AgentArmor, a program analysis framework that converts agent traces into graph intermediate representation-based structured program dependency representations (e.g., CFG, DFG, and PDG) and enforces security policies via a type system. AgentArmor consists of three key components: (1) a graph constructor that reconstructs the agent's runtime traces as graph-based intermediate representations with control and data flow described within; (2) a property registry that attaches security-relevant metadata of interacted tools \&data, and (3) a type system that performs static inference and checking over the intermediate representation. By representing agent behavior as structured programs, AgentArmor enables program analysis for sensitive data flow, trust boundaries, and policy violations. We evaluate AgentArmor on the AgentDojo benchmark, the results show that AgentArmor can reduce the ASR to 3\%, with the utility drop only 1\%."
+"Make agent defeat agent: Automatic detection of {Taint-Style} vulnerabilities in {LLM-based} agents","https://scispace.com/paper/WSFTCXjR5ZcJ","","","","F Liu
+Y Zhang
+J Luo
+J Dai
+T Chen
+L Yuan","","https://www.usenix.org/system/files/usenixsecurity25-liu-fengyu.pdf","… plications on GitHub using the keywords (eg, “LLM”, “AI Agent”) … text), we added simple prompt injection payloads in front of the … Based on our evaluation, we propose three measures to …",""
+"Security of ai agents","https://scispace.com/paper/security-of-ai-agents-r7aghg5iewf7","2025","Journal Article","","Yifeng He
+Ethan Wang
+Yuyang Rong
+Zifei Cheng
+Hao Chen","10.1109/raie66699.2025.00013","https://arxiv.org/pdf/2406.08689","… We use the term AI agent to denote all LLMbased agents in … Adversarial data poisoning is a well-established attack technique … To verify this defense method, we design an evaluation …",""
+"The landscape of prompt injection threats in llm agents: From taxonomy to analysis","https://scispace.com/paper/wzTocvlVtkUJ","","","","P Wang
+X Li
+C Xiang
+J Zhang
+Y Li
+L Zhang","","https://arxiv.org/pdf/2602.10453","… AGENTPI, a new benchmark designed to systematically … queries: “prompt injection attacks” and “LLM agent attacks”. … about jailbreaking LLM agents, general LLM agent safety, etc. …",""
+"Agentic AI security: Threats, defenses, evaluation, and open challenges","https://scispace.com/paper/agentic-ai-security-threats-defenses-evaluation-and-open-gjv4lpqp3c35","2025","Journal Article","","Chhabra Anshuman
+Mohapatra, Prasant","10.48550/arxiv.2510.23883","https://ieeexplore.ieee.org/iel8/6287639/6514899/11447227.pdf","… manipulating an LLM agent in intentional prompt injection. Both … An essential safeguard for AI agent security is strict policy en… and safety limits, even when facing adversarial challenges. …","Agentic AI systems powered by large language models (LLMs) and endowed with planning, tool use, memory, and autonomy, are emerging as powerful, flexible platforms for automation. Their ability to autonomously execute tasks across web, software, and physical environments creates new and amplified security risks, distinct from both traditional AI safety and conventional software security. This survey outlines a taxonomy of threats specific to agentic AI, reviews recent benchmarks and evaluation methodologies, and discusses defense strategies from both technical and governance perspectives. We synthesize current research and highlight open challenges, aiming to support the development of secure-by-design agent systems. "
+"Agentic ai security: Threats, defenses, evaluation, and open challenges","https://scispace.com/paper/agentic-ai-security-threats-defenses-evaluation-and-open-gjv4lpqp3c35","2025","Journal Article","","Chhabra Anshuman
+Mohapatra, Prasant","10.48550/arxiv.2510.23883","https://arxiv.org/pdf/2510.23883","… manipulating an LLM agent in intentional prompt injection. Both … An essential safeguard for AI agent security is strict policy en… and safety limits, even when facing adversarial challenges. …","Agentic AI systems powered by large language models (LLMs) and endowed with planning, tool use, memory, and autonomy, are emerging as powerful, flexible platforms for automation. Their ability to autonomously execute tasks across web, software, and physical environments creates new and amplified security risks, distinct from both traditional AI safety and conventional software security. This survey outlines a taxonomy of threats specific to agentic AI, reviews recent benchmarks and evaluation methodologies, and discusses defense strategies from both technical and governance perspectives. We synthesize current research and highlight open challenges, aiming to support the development of secure-by-design agent systems. "
+"Security considerations for artificial intelligence agents","https://scispace.com/paper/bHO-0-mTZBEJ","","","","N Li
+K Zhang
+K Polley
+J Ma","","https://arxiv.org/pdf/2603.12230","… We analyze the security threats and risks in AI agent systems … threats in AI agent systems: indirect prompt injection attacks. … evaluation should therefore include adaptive adversarial …",""
+"A systematic survey of security threats and defenses in LLM-based AI agents: A layered attack surface framework","https://scispace.com/paper/UhpD7ok79McJ","","","","K Chu","","https://arxiv.org/pdf/2604.23338","… type, such as prompt injection or jailbreaking, but say nothing about … An AI agent maintains persistent state across sessions, … (attack, defense, or benchmark) targets the trust boundary or …",""
+"Your Agent is More Brittle Than You Think: Uncovering Indirect Injection Vulnerabilities in Agentic LLMs","https://scispace.com/paper/42p2AIZwmvYJ","","","","W Zhu
+X Dong
+X Chen
+R Cai
+P Qiu
+Z Wang","","https://arxiv.org/pdf/2604.03870","… our broader evaluation of contemporary defense strategies. … successfully hijacked the LLM agent during standard system … nine LLM backbones against four Indirect Prompt Injection (IPI) …",""
+"A multi-agent LLM defense pipeline against prompt injection attacks","https://scispace.com/paper/a-multi-agent-llm-defense-pipeline-against-prompt-injection-znh193viz5c9","2025","Journal Article","","Mridha, M. F.
+Shin Jungpil","10.48550/arxiv.2509.14285","https://arxiv.org/pdf/2509.14285","… comprehensive evaluation on 55 unique prompt injection … with safety alignment remain vulnerable to carefully crafted … Wang et al., ”To protect the LLM agent against prompt injection …","Prompt injection attacks represent a major vulnerability in Large Language Model (LLM) deployments, where malicious instructions embedded in user inputs can override system prompts and induce unintended behaviors. This paper presents a novel multi-agent defense framework that employs specialized LLM agents in coordinated pipelines to detect and neutralize prompt injection attacks in real-time. We evaluate our approach using two distinct architectures: a sequential chain-of-agents pipeline and a hierarchical coordinator-based system. Our comprehensive evaluation on 55 unique prompt injection attacks, grouped into 8 categories and totaling 400 attack instances across two LLM platforms (ChatGLM and Llama2), demonstrates significant security improvements. Without defense mechanisms, baseline Attack Success Rates (ASR) reached 30% for ChatGLM and 20% for Llama2. Our multi-agent pipeline achieved 100% mitigation, reducing ASR to 0% across all tested scenarios. The framework demonstrates robustness across multiple attack categories including direct overrides, code execution attempts, data exfiltration, and obfuscation techniques, while maintaining system functionality for legitimate queries. "
+"Prompt Injection Detection and Mitigation with AI Multiagent NLP-based Agentic Frameworks","https://scispace.com/paper/ag-G9IKDyzEJ","","","","D Gosmar
+DA Dahl
+D Gosmar","","","… Prompt injection defense has recently emerged as a critical … multiagent design where each AI agent has a specialized role… — we introduce the following evaluation metrics: 1) Injection …",""
+"AgentSecBench: Measuring Prompt Injection, Privacy Leakage, and Tool-Use Integrity in LLM Agents","https://scispace.com/paper/HLDKB1Zw0LkJ","","","","F Alpay
+T Alpay","","https://arxiv.org/pdf/2605.26269","… -visible adversarial capability remains exploitable. The result is a security-oriented evaluation … In an LLM agent, the distinction is frequently represented as prose inside a prompt. The …",""
+"Prompt Injection Attacks in Large Language Models and AI Agent Systems: A Comprehensive Review of Vulnerabilities, Attack Vectors, and Defense …","https://scispace.com/paper/t1DaE6OG9TgJ","","","","S Gulyamov
+S Gulyamov
+A Rodionov
+R Khursanov","","","… prompt injection—jailbreaking—occurs when users deliberately craft prompts to override LLM safety … for both generation and security evaluation creates compound rather than layered …",""
+"Prompt Injection Attacks on Agentic Coding Assistants: A Systematic Analysis of Vulnerabilities in Skills, Tools, and Protocol Ecosystems","https://scispace.com/paper/prompt-injection-attacks-on-agentic-coding-assistants-a-vpynnq89e8je","2026","Journal Article","","Narek Maloyan
+Dmitry Namiot","10.48550/arxiv.2601.17548","","… terms: prompt injection, LLM agent security, MCP vulnerability, … LLM security research, agent-specific attacks, benchmark … the agent to comply without triggering its safety heuristics. The …","The proliferation of agentic AI coding assistants, including Claude Code, GitHub Copilot, Cursor, and emerging skill-based architectures, has fundamentally transformed software development workflows. These systems leverage Large Language Models (LLMs) integrated with external tools, file systems, and shell access through protocols like the Model Context Protocol (MCP). However, this expanded capability surface introduces critical security vulnerabilities. In this \textbf{Systematization of Knowledge (SoK)} paper, we present a comprehensive analysis of prompt injection attacks targeting agentic coding assistants. We propose a novel three-dimensional taxonomy categorizing attacks across \textit{delivery vectors}, \textit{attack modalities}, and \textit{propagation behaviors}. Our meta-analysis synthesizes findings from 78 recent studies (2021--2026), consolidating evidence that attack success rates against state-of-the-art defenses exceed 85\% when adaptive attack strategies are employed. We systematically catalog 42 distinct attack techniques spanning input manipulation, tool poisoning, protocol exploitation, multimodal injection, and cross-origin context poisoning. Through critical analysis of 18 defense mechanisms reported in prior work, we identify that most achieve less than 50\% mitigation against sophisticated adaptive attacks. We contribute: (1) a unified taxonomy bridging disparate attack classifications, (2) the first systematic analysis of skill-based architecture vulnerabilities with concrete exploit chains, and (3) a defense-in-depth framework grounded in the limitations we identify. Our findings indicate that the security community must treat prompt injection as a first-class vulnerability class requiring architectural-level mitigations rather than ad-hoc filtering approaches. "
+"Prompt Injection Attacks in Large Language Models and AI Agent Systems: A Comprehensive Review of Vulnerabilities, Attack Vectors, and Defense Mechanisms","https://scispace.com/paper/prompt-injection-attacks-in-large-language-models-and-ai-6p8njfahgk30","2026","Journal Article","","Saidakhror Gulyamov
+Saidakhror Gulyamov
+Andrey Rodionov
+Rustam Khursanov
+K. Mekhmonov
+Djakhongir Babaev
+Akmaljon Rakhimjonov","10.3390/info17010054","https://www.preprints.org/frontend/manuscript/40097b1a4d5fc29a26a1088e674be312/download_pub","… Direct prompt injection—jailbreaking—occurs when users deliberately craft prompts to override LLM safety … and security evaluation creates compound vulnerability rather than layered …",""
