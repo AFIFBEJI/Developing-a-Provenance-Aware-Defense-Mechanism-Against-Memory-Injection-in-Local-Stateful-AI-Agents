@@ -1,0 +1,2 @@
+12:03:57 | INFO     | Log file: logs/tool_semantics_swap_v2_20260825_120357.log
+12:03:57 | INFO     | Loading embedding model on first call -- can take up to a minute cold. No output during this is normal, not a hang.

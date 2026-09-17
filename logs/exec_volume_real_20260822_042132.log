@@ -1,0 +1,2 @@
+04:21:32 | INFO     | Log file: logs/exec_volume_real_20260822_042132.log
+04:21:32 | INFO     | Loading embedding model on first call -- can take up to a minute cold, especially right after clearing disk caches. No output during this is normal, not a hang. Watch CPU usage if genuinely worried.

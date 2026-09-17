@@ -1,0 +1,2 @@
+00:40:49 | INFO     | Log file: logs/tool_semantics_neutral_v2_20260828_004049.log
+00:40:49 | INFO     | Loading embedding model on first call -- can take up to a minute cold. No output during this is normal, not a hang.

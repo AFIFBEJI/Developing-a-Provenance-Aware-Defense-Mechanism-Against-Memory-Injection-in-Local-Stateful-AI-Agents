@@ -1,0 +1,7 @@
+01:02:13 | INFO     | Log file: logs/many_shot_smoke_20260810_010213.log
+01:02:13 | INFO     | Command: src/attacks/many_shot_injection.py
+01:02:13 | INFO     | Domains: ['driving_license', 'wifi_password_sharing'] | Arm A K=[1, 2, 3] | Arm B K=[1, 3, 5, 10] | n_trials=1
+01:02:13 | INFO     | 
+======================================================================
+Domain: driving_license
+======================================================================

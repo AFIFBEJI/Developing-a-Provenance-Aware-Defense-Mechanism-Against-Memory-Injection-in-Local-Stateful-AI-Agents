@@ -1,0 +1,50 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python-generated files and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# IDE and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Jupyter and temporary files
+.ipynb_checkpoints/
+*.tmp
+*.temp
+
+# Downloaded local model files
+*.gguf
+*.safetensors
+models/
+
+# Generated Chroma databases
+chroma_db/
+.chroma/
+data/chroma_db/
+data/chroma/
+
+# Locally mutated sandbox state
+sandbox_fs/
+
+# Private conversation export
+Full_convo.md
